@@ -9,6 +9,7 @@ import {MaterialModule} from './material-module';
 import { SideNavComponent } from './side-nav/side-nav.component';
 import { HomeComponent } from './views/home/home.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { AboutComponent } from './views/about/about.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     AppComponent,
     SideNavComponent,
     HomeComponent,
-    NavbarComponent
+    NavbarComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
