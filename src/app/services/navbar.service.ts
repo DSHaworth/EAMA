@@ -22,7 +22,12 @@ export class NavbarService {
       displayName: 'About',
       iconName: 'fas fa-angle-right',
       route: '/about',
-    }    
+    },
+    {
+      displayName: 'Login',
+      iconName: 'fas fa-angle-right',
+      route: '/login',
+    }        
   ];
 
   getNavbarMenu(): NavItem[] {
@@ -30,9 +35,6 @@ export class NavbarService {
   }
 
   public toggle() {
-    console.log("Message received in service");
-    console.log("Send message to subscribers");
     return this.sideNavToggleSubject.next();
   }   
-
 }

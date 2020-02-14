@@ -16,7 +16,6 @@ export class NavbarComponent implements OnInit {
   ) { }
 
   clickMenu() { 
-    console.log("Menu Clicked");
     this.navbarService.toggle();
   }
 

@@ -14,6 +14,7 @@ import { AboutComponent } from './views/about/about.component';
 import { SideNavMainComponent } from './components/side-nav-main/side-nav-main.component';
 import { LandingPageComponent } from './views/landing-page/landing-page.component';
 import { NavbarService } from './services/navbar.service';
+import { LoginComponent } from './views/login/login.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { NavbarService } from './services/navbar.service';
     NavbarComponent,
     AboutComponent,
     SideNavMainComponent,
-    LandingPageComponent
+    LandingPageComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

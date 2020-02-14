@@ -1,5 +1,8 @@
+// https://stackblitz.com/edit/angular-material-toggle-sidenav-in-another-component
+// https://stackblitz.com/edit/responsive-menu-angular-material-flex-layout
+
 import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
-import {MatSidenavModule} from '@angular/material/sidenav';
+//import {MatSidenavModule} from '@angular/material/sidenav';
 import { Subscription } from 'rxjs';
 
 import { NavbarService } from '../../services/navbar.service';
@@ -22,17 +25,15 @@ export class SideNavMainComponent implements OnInit, OnDestroy {
   menu: NavItem[];
 
   ngOnInit(): void {
-    console.log("in init");
     this.menu = this.navbarService.getNavbarMenu();
 
     this.subscription = this.navbarService.sideNavToggleSubject.subscribe(()=> {
-      console.log("Subscription received message");
       this.sidenav.toggle();
     });       
   }
   ngOnDestroy() {
     // unsubscribe to ensure no memory leaks
-    //this.subscription.unsubscribe();
+    this.subscription.unsubscribe();
   }
 
 }
