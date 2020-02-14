@@ -9,15 +9,18 @@ import { NavItem } from 'src/app/models/nav-item';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor( private navbarService: NavbarService) { }
-
   menu: NavItem[];
+
+  constructor( 
+    private navbarService: NavbarService
+  ) { }
+
+  clickMenu() { 
+    console.log("Menu Clicked");
+    this.navbarService.toggle();
+  }
 
   ngOnInit(): void {
     this.menu = this.navbarService.getNavbarMenu();
-
-    console.info(this.menu);
-
   }
-
 }
