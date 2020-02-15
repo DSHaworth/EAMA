@@ -6,3 +6,14 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 
 @import "~@fortawesome/fontawesome-free/css/all.css";
+
+// //https://stackoverflow.com/questions/48537511/trouble-with-container-height-100-not-working-angular-material
+// mat-sidenav-container {
+//   height: calc(100vh - 64px);
+// }
+
+// @media (max-width: 600px) {
+//     mat-sidenav-container {
+//         height: calc(100vh - 56px)
+//     }
+// }

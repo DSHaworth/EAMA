@@ -13,9 +13,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { AboutComponent } from './views/about/about.component';
 import { SideNavMainComponent } from './components/side-nav-main/side-nav-main.component';
 import { LandingPageComponent } from './views/landing-page/landing-page.component';
-import { NavbarService } from './services/navbar.service';
 import { LoginComponent } from './views/login/login.component';
-
 
 @NgModule({
   declarations: [
@@ -38,9 +36,7 @@ import { LoginComponent } from './views/login/login.component';
     FlexLayoutModule,
     MaterialModule
   ],
-  providers: [
-    //NavbarService
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
