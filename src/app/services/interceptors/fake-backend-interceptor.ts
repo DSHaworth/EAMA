@@ -28,15 +28,14 @@ export class FakeBackendInterceptor implements HttpInterceptor {
         function handleRoute() {
             switch (true) {
                 case url.endsWith('api/auth/login') && method === 'POST':
-                  console.log(request.params);
                   return login();
             }
         }
 
         // route functions
         function login(){
-          //return ok(true);
-          return unauthorized();
+          return ok(true);
+          //return unauthorized();
         }
 
 
