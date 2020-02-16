@@ -8,6 +8,12 @@
   right: 0;
 }
 
+@media only screen and (max-width: 600px) {
+  .app-wrapper {
+    top: 56px;
+  }
+}
+
 app-side-nav-main{
   height: 100%;
 }

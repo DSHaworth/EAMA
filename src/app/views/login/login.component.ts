@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormGroup, FormControl } from '@angular/forms';
+import { AuthService } from 'src/app/services/api/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -9,8 +10,12 @@ import { Validators, FormGroup, FormControl } from '@angular/forms';
 export class LoginComponent implements OnInit {
 
   loginFormGroup: FormGroup;
+  error: string;
 
-  constructor() { 
+  constructor(
+    private authService: AuthService
+
+  ) { 
     this.loginFormGroup = this.createLoginFormGroup();
   }
 
@@ -20,8 +25,20 @@ export class LoginComponent implements OnInit {
       && this.loginFormGroup.controls[formField].touched);
   }  
 
-  signin(){
-    
+  login(){
+    this.authService.login()
+    .subscribe( 
+      result => {
+        alert("Done");
+        //this.reportYears = result;
+      },
+      error => {
+        this.error = error;
+        alert("Here is the error: " + error);
+      }
+    ).add(() => {
+      alert("finally done here");
+    });
   }
 
   createLoginFormGroup(){
