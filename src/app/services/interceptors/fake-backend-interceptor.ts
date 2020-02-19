@@ -52,11 +52,20 @@ export class FakeBackendInterceptor implements HttpInterceptor {
         // route functions
         function login(user:ILogin){
 
-          var result = data.users.filter( (obj) => {
+          // var result = data.users.filter( (obj) => {
+          //   return obj.userName === user.username && obj.password === user.password;
+          // })
+
+          // if(result.length === 1){
+          //   return ok(result[0]);
+          // }          
+
+
+          var result = data.users.find( (obj) => {
             return obj.userName === user.username && obj.password === user.password;
           })
 
-          if(result.length === 1){
+          if(result){
             return ok(result[0]);
           }          
           return unauthorized();

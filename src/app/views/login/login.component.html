@@ -38,7 +38,10 @@
             </mat-form-field>
           </div>
           
-          <button mat-raised-button class="mat-primary full-width mb-1" (click)="login();" [disabled]="loginFormGroup.invalid">Sign in</button>
+          <button mat-raised-button class="mat-primary full-width mb-1" (click)="login();" [disabled]="loginFormGroup.invalid">            
+            <i *ngIf="isBusy" class="fa fa-spinner fa-spin fa-fw" aria-hidden="true"></i>
+            Login            
+          </button>
 
         </form>
       </mat-card-content>

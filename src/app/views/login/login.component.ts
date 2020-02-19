@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormGroup, FormControl } from '@angular/forms';
+
 import { AuthService } from 'src/app/services/api/auth.service';
+import { SnackbarService } from 'src/app/services/snackbar.service';
 
 @Component({
   selector: 'app-login',
@@ -10,11 +12,11 @@ import { AuthService } from 'src/app/services/api/auth.service';
 export class LoginComponent implements OnInit {
 
   loginFormGroup: FormGroup;
-  error: string;
+  isBusy: boolean = false;
 
   constructor(
-    private authService: AuthService
-
+    private authService: AuthService,
+    private snackbarService: SnackbarService,
   ) { 
     this.loginFormGroup = this.createLoginFormGroup();
   }
@@ -27,20 +29,18 @@ export class LoginComponent implements OnInit {
 
   login(){
 
-    console.log(this.loginFormGroup.value);
-
+    this.isBusy = true;
     this.authService.login(this.loginFormGroup.value)
       .subscribe( 
         result => {
-          alert("Done");
-          //this.reportYears = result;
+          console.log(result);
+          this.snackbarService.showSuccess("It worked");
         },
         error => {
-          this.error = error;
-          alert("Here is the error: " + error);
+          this.snackbarService.showError(error);
         }
       ).add(() => {
-        alert("finally done here");
+        this.isBusy = false;
       });
   }
 
