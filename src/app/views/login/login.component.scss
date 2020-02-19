@@ -1,18 +1,3 @@
 .login-card{
   width: 300px;
 }
-
-.full-width{
-  width: 100%;
-}
-
-//https://philipwalton.github.io/solved-by-flexbox/demos/vertical-centering/
-.aligner {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.aligner-item {
-  max-width: 50%;
-}

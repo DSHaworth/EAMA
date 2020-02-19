@@ -19,11 +19,13 @@ import { LandingPageComponent } from './views/landing-page/landing-page.componen
 import { LoginComponent } from './views/login/login.component';
 
 import {interceptorProviders} from './services/interceptors/interceptors';
+import { SnackbarComponent } from './services/snackbar.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     SideNavComponent,
+    SnackbarComponent,
     HomeComponent,
     NavbarComponent,
     AboutComponent,
@@ -43,6 +45,7 @@ import {interceptorProviders} from './services/interceptors/interceptors';
 
     MaterialModule
   ],
+  entryComponents: [SnackbarComponent],
   providers: [ interceptorProviders ],
   bootstrap: [AppComponent]
 })
