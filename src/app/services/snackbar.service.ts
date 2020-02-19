@@ -59,8 +59,12 @@ import { MatSnackBarRef, MAT_SNACK_BAR_DATA } from '@angular/material/snack-bar'
 @Component({
   selector: 'snack-bar-component-example-snack',
   template: `
-<div class="flex" style="height: 100%;">
-  <div class="aligner" style="height: 100%;"><mat-icon>error_outline</mat-icon></div>
+<div class="flex">
+  <div style="height: 40px; width: 40px;line-height: 40px;">
+    <div>
+    <i class="fas fa-exclamation-circle"></i>
+    </div>
+  </div>
   <div class="data">{{data}}</div>
   <div class="dismiss">
     <button mat-icon-button (click)="snackBarRef.dismiss()">
