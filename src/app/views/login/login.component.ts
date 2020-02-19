@@ -26,19 +26,22 @@ export class LoginComponent implements OnInit {
   }  
 
   login(){
-    this.authService.login()
-    .subscribe( 
-      result => {
-        alert("Done");
-        //this.reportYears = result;
-      },
-      error => {
-        this.error = error;
-        alert("Here is the error: " + error);
-      }
-    ).add(() => {
-      alert("finally done here");
-    });
+
+    console.log(this.loginFormGroup.value);
+
+    this.authService.login(this.loginFormGroup.value)
+      .subscribe( 
+        result => {
+          alert("Done");
+          //this.reportYears = result;
+        },
+        error => {
+          this.error = error;
+          alert("Here is the error: " + error);
+        }
+      ).add(() => {
+        alert("finally done here");
+      });
   }
 
   createLoginFormGroup(){

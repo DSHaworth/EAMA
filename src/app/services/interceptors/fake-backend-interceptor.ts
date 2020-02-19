@@ -10,6 +10,14 @@ import { HttpRequest, HttpResponse, HttpHandler, HttpEvent, HttpInterceptor, HTT
 import { Observable, of, throwError } from 'rxjs';
 import { delay, mergeMap, materialize, dematerialize } from 'rxjs/operators';
 
+import { ILogin } from 'src/app/models/ILogin';
+
+let data = {
+  "users": [
+    {"firstName": "Duane", "lastName": "Haworth", "userName": "dshaworth", "password": "P@55w0rd" }
+  ]
+};
+
 // array in local storage for registered users
 let users = JSON.parse(localStorage.getItem('users')) || [];
 
@@ -28,14 +36,30 @@ export class FakeBackendInterceptor implements HttpInterceptor {
         function handleRoute() {
             switch (true) {
                 case url.endsWith('api/auth/login') && method === 'POST':
-                  return login();
+
+                  console.log("handleRoute");
+                  console.log(request);
+
+                  let user:ILogin = {
+                    username: request.body.username,
+                    password: request.body.password
+                  }
+
+                  return login(user);
             }
         }
 
         // route functions
-        function login(){
-          return ok(true);
-          //return unauthorized();
+        function login(user:ILogin){
+
+          var result = data.users.filter( (obj) => {
+            return obj.userName === user.username && obj.password === user.password;
+          })
+
+          if(result.length === 1){
+            return ok(result[0]);
+          }          
+          return unauthorized();
         }
 
 
