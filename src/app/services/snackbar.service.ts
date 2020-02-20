@@ -1,6 +1,5 @@
 import { Component, Injectable, Inject } from '@angular/core';
 import {MatSnackBar} from '@angular/material/snack-bar';
-import {MatIconModule} from '@angular/material/icon';
 
 @Injectable({
   providedIn: 'root'
@@ -11,61 +10,48 @@ export class SnackbarService {
 
   defaultDisplayTime:number = 5;
 
-  openSnackBar() {
-    this.snackbar.open('test', 'Close');
-  }  
-
   showError(message: string){
-
     this.snackbar.openFromComponent(SnackbarComponent, {
-      data: message,
-      //duration: this.defaultDisplayTime * 1000,
+      data: {message: message, icon: "fa-exclamation-circle"},
+      duration: this.defaultDisplayTime * 1000,
       horizontalPosition: "center",
       verticalPosition: "top",
       panelClass: ["customize-snackbar", "snackbar-error"]
     });
+  }
 
-    // this.snackbar.open(message, " ",{
-    //   duration: this.defaultDisplayTime * 1000,
-    //   announcementMessage: message,      
-    //   horizontalPosition: "center",
-    //   verticalPosition: "top",
-    //   panelClass: ["customize-snackbar", "snackbar-error"],
-    // });    
+  showSuccess(message: string){
+    this.snackbar.openFromComponent(SnackbarComponent, {
+      data: {message: message, icon: "fa-check-circle"},
+      duration: this.defaultDisplayTime * 1000,
+      horizontalPosition: "center",
+      verticalPosition: "top",
+      panelClass: ["customize-snackbar", "snackbar-success"]
+    });
   }
 
   showInfo(message: string){
-    this.snackbar.open(message, " ",{
+    this.snackbar.openFromComponent(SnackbarComponent, {
+      data: {message: message, icon: "fa-info-circle"},
       duration: this.defaultDisplayTime * 1000,
-      announcementMessage: message,      
       horizontalPosition: "center",
       verticalPosition: "top",
-      panelClass: ["customize-snackbar", "snackbar-info"],
-    });    
+      panelClass: ["customize-snackbar", "snackbar-error"]
+    });
   }  
-
-  showSuccess(message: string){
-    this.snackbar.open(message, " ",{
-      duration: this.defaultDisplayTime * 1000,
-      announcementMessage: message,      
-      horizontalPosition: "center",
-      verticalPosition: "top",
-      panelClass: ["customize-snackbar", "snackbar-success"],
-    });        
-  }
 }
 
 import { MatSnackBarRef, MAT_SNACK_BAR_DATA } from '@angular/material/snack-bar';
 @Component({
   selector: 'snack-bar-component-example-snack',
   template: `
-<div class="flex">
-  <div style="height: 40px; width: 40px;line-height: 40px;">
-    <div>
-    <i class="fas fa-exclamation-circle"></i>
+<div class="flex v-center">
+  <div class="flex v-center">
+    <div class="message-icon">  
+      <i class="fas {{data.icon}}"></i>
     </div>
-  </div>
-  <div class="data">{{data}}</div>
+    <div class="data">{{data.message}}</div>
+  </div>  
   <div class="dismiss">
     <button mat-icon-button (click)="snackBarRef.dismiss()">
         <mat-icon>close</mat-icon>
@@ -78,5 +64,4 @@ export class SnackbarComponent {
     public snackBarRef: MatSnackBarRef<SnackbarComponent>,
     @Inject(MAT_SNACK_BAR_DATA) public data: any
   ) { }
-
 }
