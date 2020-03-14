@@ -24,7 +24,7 @@ export class HttpErrorInterceptor implements HttpInterceptor {
           } else {
             // server-side error
             //errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
-            errorMessage = `Error Code: ${error.status}\nMessage: ${error.error.message}`;
+            errorMessage = `${error.status}\n: ${error.error.message}`;
           }
           //window.alert(errorMessage);
           return throwError(errorMessage);

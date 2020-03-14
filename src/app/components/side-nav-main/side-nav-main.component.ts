@@ -5,7 +5,7 @@ import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 //import {MatSidenavModule} from '@angular/material/sidenav';
 import { Subscription } from 'rxjs';
 
-import { NavbarService } from '../../services/navbar.service';
+import { NavbarService } from 'src/app/services/ui/navbar.service';
 import { NavItem } from 'src/app/models/nav-item';
 
 @Component({

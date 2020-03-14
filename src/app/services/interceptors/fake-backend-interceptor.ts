@@ -13,13 +13,31 @@ import { delay, mergeMap, materialize, dematerialize } from 'rxjs/operators';
 import { ILogin } from 'src/app/models/ILogin';
 
 let data = {
-  "users": [
-    {"firstName": "Duane", "lastName": "Haworth", "userName": "dshaworth", "password": "P@55w0rd" }
+  users: [
+    {
+      firstName: "Duane", 
+      lastName: "Haworth", 
+      userName: "dshaworth", 
+      password: "P@55w0rd" 
+    }
+  ],
+  roles: [
+    {
+      name: "admin"
+    },
+    {
+      name: "staff"
+    }
+  ],
+  schools: [
+    {
+
+    }
   ]
 };
 
 // array in local storage for registered users
-let users = JSON.parse(localStorage.getItem('users')) || [];
+let users = localStorage.getItem('users') || [];
 
 @Injectable()
 export class FakeBackendInterceptor implements HttpInterceptor {
@@ -66,7 +84,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
           })
 
           if(result){
-            return ok(result[0]);
+            return ok(result);
           }          
           return unauthorized();
         }

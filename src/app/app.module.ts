@@ -19,7 +19,7 @@ import { LandingPageComponent } from './views/landing-page/landing-page.componen
 import { LoginComponent } from './views/login/login.component';
 
 import {interceptorProviders} from './services/interceptors/interceptors';
-import { SnackbarComponent } from './services/snackbar.service';
+import { SnackbarComponent } from './services/ui/snackbar.service';
 
 @NgModule({
   declarations: [
