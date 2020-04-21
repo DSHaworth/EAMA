@@ -3,7 +3,9 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+//@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+@import "theme.scss";
 
 @import "~@fortawesome/fontawesome-free/css/all.css";
 
@@ -37,9 +39,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   align-items: center;
   align-content: center;
 }
-    
+
 .mat-snack-bar-container .message-icon{
-  height: 40px; 
+  height: 40px;
   width: 40px;
   line-height: 40px;
 }

@@ -45,3 +45,25 @@ ng test
 
 ## Build for Production
 ng build --prod
+
+# Docker
+https://phoenixnap.com/kb/docker-mongodb
+https://www.thepolyglotdeveloper.com/2019/01/getting-started-mongodb-docker-container-deployment/
+
+## Mongo
+
+    // Download latest offical Docker image for MongoDB database.
+    $> docker pull mongo
+
+    // Start the Docker container with the 'run' command
+    $> docker run -it -v d:/data/db:/mongodata --name mongodb -d mongo
+
+    // https://www.thepolyglotdeveloper.com/2019/01/getting-started-mongodb-docker-container-deployment/
+    // Connect to the container using the interactive terminal
+    $> docker exec -it mongodb bash
+
+    // Launch the MongoDB shell client
+    $> mongo
+
+    // See list of databases
+    $# show dbs
